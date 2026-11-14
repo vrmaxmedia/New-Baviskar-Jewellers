@@ -1016,44 +1016,14 @@ END:VCARD`;
           height: 100vh;
           height: 100dvh;
 
-          background: radial-gradient(
-              ellipse at 50% -6%,
-              rgba(255, 255, 255, 0.85),
-              transparent 55%
-            ),
-            radial-gradient(
-              circle at 108% 38%,
-              rgba(232, 168, 148, 0.4),
-              transparent 52%
-            ),
-            radial-gradient(
-              circle at -8% 85%,
-              rgba(217, 160, 138, 0.32),
-              transparent 50%
-            ),
-            linear-gradient(180deg, #fff1ea 0%, #fbe3d8 55%, #f6d3c5 100%);
+          background-color: #fbe3d8;
+          background-image: url("/bg.png");
+          background-size: 100% 100%;
+          background-position: center center;
+          background-repeat: no-repeat;
 
           z-index: 0;
           pointer-events: none;
-        }
-
-        .fixed-bg::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background-image: radial-gradient(
-              circle,
-              rgba(217, 160, 138, 0.55) 0.8px,
-              transparent 1.3px
-            ),
-            radial-gradient(
-              circle,
-              rgba(255, 255, 255, 0.9) 0.7px,
-              transparent 1.2px
-            );
-          background-size: 52px 52px, 83px 83px;
-          background-position: 0 0, 26px 34px;
-          opacity: 0.35;
         }
 
         .soft-luxury-viewport {
