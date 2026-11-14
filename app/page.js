@@ -46,7 +46,7 @@ const CLIENT_CONFIG = {
   cleanPhone: "917972131775",
   logoUrl: "/logo.png",
   googleReviewUrl:
-    "https://www.google.com/maps/search/?api=1&query=New+Baviskar+Jewellers+Garkheda+Gajanan+Maharaj+Mandir+Rd+Chhatrapati+Sambhajinagar",
+    "https://search.google.com/local/writereview?placeid=ChIJ5a1TxoWi2zsRY21l499TQNw",
   mapsDirectionUrl:
     "https://www.google.com/maps/search/?api=1&query=New+Baviskar+Jewellers+Shop+No+5+Plot+No+4+Sarang+Housing+Society+Garkheda+Gajanan+Maharaj+Mandir+Rd+Chaitanya+Nagar+Chhatrapati+Sambhajinagar",
   instagramUrl: "https://www.instagram.com/new_baviskar_jeweller?psln=eGVrdnM1YXJwd3Ri",
