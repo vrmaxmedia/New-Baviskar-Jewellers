@@ -456,7 +456,7 @@ END:VCARD`;
       <div className="fixed-bg"></div>
 
       <div className="main-content-flow">
-        {/* Logo & High-Contrast Title */}
+        {/* Logo & Premium Shining Title Plaque */}
         <div className="brand-medallion-badge">
           <div
             className="logo-circle-container"
@@ -1056,7 +1056,7 @@ END:VCARD`;
 
         .brand-medallion-badge {
           margin-top: 2px;
-          margin-bottom: 4px;
+          margin-bottom: 5px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -1073,7 +1073,7 @@ END:VCARD`;
           background-repeat: no-repeat;
           box-shadow: 0 10px 25px rgba(85, 38, 30, 0.32),
             0 3px 9px rgba(165, 95, 78, 0.18);
-          margin-bottom: 10px;
+          margin-bottom: 11px;
           animation: floatLogo 3.5s ease-in-out infinite;
           border: 3px solid #f7dcc8;
           transition: transform 0.2s ease;
@@ -1100,48 +1100,102 @@ END:VCARD`;
         }
 
         /* =========================================
-           HIGH-CONTRAST HERO TITLE & SUBTITLE
-           CLEARLY VISIBLE OVER SHOWROOM PHOTO
+           PREMIUM SHINING ROYAL JEWELLERY PLAQUE
+           METALLIC ROSE-GOLD BORDER + SHIMMER SWEEP
         ========================================= */
 
         .hero-title-backdrop {
+          position: relative;
+          overflow: hidden;
           display: inline-flex;
           flex-direction: column;
           align-items: center;
-          padding: 7px 18px 8px;
-          border-radius: 18px;
-          background: radial-gradient(
-            ellipse at center,
-            rgba(255, 248, 243, 0.92) 0%,
-            rgba(255, 244, 236, 0.78) 65%,
-            rgba(255, 244, 236, 0) 100%
+          padding: 9px 22px 10px;
+          border-radius: 999px;
+
+          /* Metallic Rose-Gold Double Border Effect */
+          border: 1.5px solid #e7b89c;
+          background: linear-gradient(
+            145deg,
+            rgba(255, 252, 249, 0.96) 0%,
+            rgba(252, 233, 222, 0.94) 50%,
+            rgba(255, 249, 245, 0.96) 100%
           );
-          backdrop-filter: blur(4px);
-          -webkit-backdrop-filter: blur(4px);
-          box-shadow: 0 4px 18px rgba(74, 34, 30, 0.14);
+
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+
+          /* Outer Gold Glow + Inner Bevel Shine */
+          box-shadow: 0 8px 22px rgba(95, 42, 34, 0.2),
+            0 0 14px rgba(242, 195, 160, 0.55),
+            inset 0 1.5px 1px rgba(255, 255, 255, 1),
+            inset 0 -1.5px 2px rgba(188, 122, 98, 0.28);
+        }
+
+        /* Subtle Inner Jewellery Rim */
+        .hero-title-backdrop::before {
+          content: "";
+          position: absolute;
+          inset: 3px;
+          border-radius: 999px;
+          border: 1px solid rgba(212, 155, 122, 0.45);
+          pointer-events: none;
+        }
+
+        /* Moving Luxury Light Shine Sweep */
+        .hero-title-backdrop::after {
+          content: "";
+          position: absolute;
+          top: -30%;
+          left: -65%;
+          width: 45%;
+          height: 160%;
+          background: linear-gradient(
+            115deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.72) 50%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          transform: skewX(-22deg);
+          animation: plaqueShine 4.2s ease-in-out infinite;
+          pointer-events: none;
+        }
+
+        @keyframes plaqueShine {
+          0%,
+          35% {
+            left: -65%;
+          }
+          75%,
+          100% {
+            left: 135%;
+          }
         }
 
         .brand-main-title {
+          position: relative;
+          z-index: 1;
           font-family: Georgia, serif;
-          font-size: 24px;
+          font-size: 22.5px;
           font-weight: 900;
-          color: #5e231d;
-          margin: 0 0 3px;
-          letter-spacing: 0.35px;
+          color: #5c2019;
+          margin: 0 0 2px;
+          letter-spacing: 0.4px;
           line-height: 1.2;
-          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95),
-            0 2px 8px rgba(255, 244, 236, 0.9);
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95);
         }
 
         .brand-serif-subtitle {
+          position: relative;
+          z-index: 1;
           font-family: Georgia, serif;
           font-style: italic;
           font-weight: 700;
-          font-size: 13px;
-          color: #7c352b;
+          font-size: 12px;
+          color: #8a3d30;
           margin: 0;
-          letter-spacing: 0.4px;
-          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95);
+          letter-spacing: 0.6px;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         .royal-shahi-divider {
@@ -1175,7 +1229,7 @@ END:VCARD`;
           gap: 5px;
           color: #b86628;
           font-size: 15px;
-          margin-bottom: 4px;
+          margin-bottom: 5px;
           filter: drop-shadow(0 1px 2px rgba(255, 250, 246, 0.95));
         }
 
@@ -1191,16 +1245,22 @@ END:VCARD`;
 
         .experience-tracker-title {
           display: inline-block;
-          padding: 3px 12px;
+          padding: 3.5px 14px;
           border-radius: 999px;
-          background: rgba(255, 248, 243, 0.82);
+          border: 1px solid rgba(225, 173, 146, 0.65);
+          background: linear-gradient(
+            145deg,
+            rgba(255, 251, 248, 0.92),
+            rgba(251, 232, 222, 0.9)
+          );
           font-size: 9.5px;
           font-weight: 800;
           letter-spacing: 2px;
           color: #6b2b23;
           text-transform: uppercase;
           margin: 0 0 9px;
-          box-shadow: 0 2px 8px rgba(90, 40, 35, 0.1);
+          box-shadow: 0 3px 10px rgba(90, 40, 35, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95);
         }
 
         .floating-pills-cloud {
@@ -2153,11 +2213,11 @@ END:VCARD`;
 
         @media (max-width: 360px) {
           .hero-title-backdrop {
-            padding: 6px 14px 7px;
+            padding: 8px 16px 9px;
           }
 
           .brand-main-title {
-            font-size: 21px;
+            font-size: 20px;
           }
 
           .cafe-gallery-section {
@@ -2183,6 +2243,10 @@ END:VCARD`;
         }
 
         @media (prefers-reduced-motion: reduce) {
+          .hero-title-backdrop::after {
+            animation: none;
+          }
+
           .gallery-track {
             transition: none;
           }
