@@ -49,7 +49,8 @@ const CLIENT_CONFIG = {
     "https://search.google.com/local/writereview?placeid=ChIJ5a1TxoWi2zsRY21l499TQNw",
   mapsDirectionUrl:
     "https://www.google.com/maps/search/?api=1&query=New+Baviskar+Jewellers+Shop+No+5+Plot+No+4+Sarang+Housing+Society+Garkheda+Gajanan+Maharaj+Mandir+Rd+Chaitanya+Nagar+Chhatrapati+Sambhajinagar",
-  instagramUrl: "https://www.instagram.com/new_baviskar_jeweller?psln=eGVrdnM1YXJwd3Ri",
+  instagramUrl:
+    "https://www.instagram.com/new_baviskar_jeweller?psln=eGVrdnM1YXJwd3Ri",
   facebookUrl: "https://www.facebook.com/share/1Nkx3FwXci/",
   websiteUrl: "https://www.newbaviskarjewellers.com/",
   youtubeUrl: "",
@@ -254,10 +255,8 @@ export default function UniversalReviewPage() {
     if (Math.abs(difference) < 45) return;
 
     if (difference > 0) {
-      // Swipe left: next image
       setGalleryIndex((current) => (current + 1) % GALLERY_IMAGES.length);
     } else {
-      // Swipe right: previous image
       setGalleryIndex(
         (current) =>
           (current - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length
@@ -457,7 +456,7 @@ END:VCARD`;
       <div className="fixed-bg"></div>
 
       <div className="main-content-flow">
-        {/* Logo */}
+        {/* Logo & High-Contrast Title */}
         <div className="brand-medallion-badge">
           <div
             className="logo-circle-container"
@@ -468,10 +467,11 @@ END:VCARD`;
             aria-label={`${CLIENT_CONFIG.businessName} logo`}
           ></div>
 
-          <h1 className="brand-main-title">{CLIENT_CONFIG.businessName}</h1>
+          <div className="hero-title-backdrop">
+            <h1 className="brand-main-title">{CLIENT_CONFIG.businessName}</h1>
+            <p className="brand-serif-subtitle">{CLIENT_CONFIG.subHeading}</p>
+          </div>
         </div>
-
-        <p className="brand-serif-subtitle">{CLIENT_CONFIG.subHeading}</p>
 
         <div className="royal-shahi-divider">
           <span className="divider-line"></span>
@@ -1056,10 +1056,11 @@ END:VCARD`;
 
         .brand-medallion-badge {
           margin-top: 2px;
-          margin-bottom: 2px;
+          margin-bottom: 4px;
           display: flex;
           flex-direction: column;
           align-items: center;
+          width: 100%;
         }
 
         .logo-circle-container {
@@ -1070,11 +1071,11 @@ END:VCARD`;
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          box-shadow: 0 10px 25px rgba(150, 85, 70, 0.22),
-            0 3px 9px rgba(165, 95, 78, 0.1);
-          margin-bottom: 8px;
+          box-shadow: 0 10px 25px rgba(85, 38, 30, 0.32),
+            0 3px 9px rgba(165, 95, 78, 0.18);
+          margin-bottom: 10px;
           animation: floatLogo 3.5s ease-in-out infinite;
-          border: 3px solid #d9a08a;
+          border: 3px solid #f7dcc8;
           transition: transform 0.2s ease;
         }
 
@@ -1098,23 +1099,49 @@ END:VCARD`;
           }
         }
 
+        /* =========================================
+           HIGH-CONTRAST HERO TITLE & SUBTITLE
+           CLEARLY VISIBLE OVER SHOWROOM PHOTO
+        ========================================= */
+
+        .hero-title-backdrop {
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 7px 18px 8px;
+          border-radius: 18px;
+          background: radial-gradient(
+            ellipse at center,
+            rgba(255, 248, 243, 0.92) 0%,
+            rgba(255, 244, 236, 0.78) 65%,
+            rgba(255, 244, 236, 0) 100%
+          );
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+          box-shadow: 0 4px 18px rgba(74, 34, 30, 0.14);
+        }
+
         .brand-main-title {
           font-family: Georgia, serif;
-          font-size: 23px;
-          font-weight: 800;
-          color: #9b5546;
-          margin: 0 0 4px;
-          letter-spacing: 0.3px;
-          text-shadow: 0 1px 2px rgba(255, 244, 238, 0.7);
+          font-size: 24px;
+          font-weight: 900;
+          color: #5e231d;
+          margin: 0 0 3px;
+          letter-spacing: 0.35px;
+          line-height: 1.2;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95),
+            0 2px 8px rgba(255, 244, 236, 0.9);
         }
 
         .brand-serif-subtitle {
           font-family: Georgia, serif;
           font-style: italic;
-          font-size: 12.5px;
-          color: #a9604f;
-          margin: 0 0 4px;
-          text-shadow: 0 1px 2px rgba(255, 244, 238, 0.75);
+          font-weight: 700;
+          font-size: 13px;
+          color: #7c352b;
+          margin: 0;
+          letter-spacing: 0.4px;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95);
         }
 
         .royal-shahi-divider {
@@ -1122,46 +1149,58 @@ END:VCARD`;
           align-items: center;
           justify-content: center;
           width: 85%;
-          margin: 4px auto 8px;
+          margin: 5px auto 7px;
           gap: 10px;
         }
 
         .divider-line {
           flex: 1;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, #d9a08a, transparent);
+          height: 1.5px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(124, 53, 43, 0.75),
+            transparent
+          );
         }
 
         .divider-gem {
-          color: #b76e5a;
-          font-size: 8px;
+          color: #7c352b;
+          font-size: 9px;
+          text-shadow: 0 1px 2px rgba(255, 250, 246, 0.95);
         }
 
         .stars-cluster {
           display: flex;
-          gap: 4px;
-          color: #cf8a73;
-          font-size: 14px;
-          margin-bottom: 2px;
-          text-shadow: 0 1px 2px rgba(255, 244, 238, 0.75);
+          gap: 5px;
+          color: #b86628;
+          font-size: 15px;
+          margin-bottom: 4px;
+          filter: drop-shadow(0 1px 2px rgba(255, 250, 246, 0.95));
         }
 
         .chip-hint {
           text-align: center;
           font-size: 11px;
-          color: #86605a;
+          font-weight: 600;
+          color: #6b3f3a;
           margin: 0 0 8px;
           letter-spacing: 0.3px;
+          text-shadow: 0 1px 2px rgba(255, 250, 246, 0.85);
         }
 
         .experience-tracker-title {
-          font-size: 9px;
+          display: inline-block;
+          padding: 3px 12px;
+          border-radius: 999px;
+          background: rgba(255, 248, 243, 0.82);
+          font-size: 9.5px;
           font-weight: 800;
           letter-spacing: 2px;
-          color: #9b5546;
+          color: #6b2b23;
           text-transform: uppercase;
-          margin: 0 0 8px;
-          text-shadow: 0 1px 2px rgba(255, 244, 238, 0.75);
+          margin: 0 0 9px;
+          box-shadow: 0 2px 8px rgba(90, 40, 35, 0.1);
         }
 
         .floating-pills-cloud {
@@ -1616,7 +1655,6 @@ END:VCARD`;
             background 0.18s ease, border-color 0.18s ease;
         }
 
-        /* Soft inner highlight */
         .icon-disc::before {
           content: "";
           position: absolute;
@@ -1635,7 +1673,6 @@ END:VCARD`;
           pointer-events: none;
         }
 
-        /* Icon depth */
         .icon-disc svg {
           position: relative;
           z-index: 1;
@@ -1864,12 +1901,6 @@ END:VCARD`;
           box-sizing: border-box;
         }
 
-        /*
-          All photos use the same 4:3 frame.
-          object-fit: contain keeps the complete image visible.
-          Portrait and landscape images will not be cropped.
-        */
-
         .gallery-image-frame {
           position: relative;
           width: 100%;
@@ -1892,8 +1923,6 @@ END:VCARD`;
           user-select: none;
           -webkit-user-drag: none;
         }
-
-        /* Subtle previous / next controls */
 
         .gallery-arrow {
           position: absolute;
@@ -2123,6 +2152,14 @@ END:VCARD`;
         ========================================= */
 
         @media (max-width: 360px) {
+          .hero-title-backdrop {
+            padding: 6px 14px 7px;
+          }
+
+          .brand-main-title {
+            font-size: 21px;
+          }
+
           .cafe-gallery-section {
             padding: 14px 10px 12px;
           }
